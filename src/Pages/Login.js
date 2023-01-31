@@ -60,6 +60,12 @@ const Login = () => {
         </div>
         <Button text={"Login"} />
       </form>
+      <p className={"text-center"}>
+        Don't have any account?{" "}
+        <Link to={"/"} style={{ textDecoration: "none", color: "#F2994A" }}>
+          Join Us
+        </Link>
+      </p>
     </section>
   );
 };
