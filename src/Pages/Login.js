@@ -51,7 +51,7 @@ const Login = () => {
           <Link to={"/"} className={"forgotPassword"}>
             Forgot Password?
           </Link>
-          <div className={"d-flex mt-3"}>
+          <div className={"d-flex"}>
             <div>
               <Input type={"checkbox"} name={"rememberMe"} id={"rememberMe"} />
             </div>
