@@ -18,6 +18,15 @@ form > *{
   text-decoration: none;
   color: black;
   font-weight: 500;
-  margin-left: 60%;
+  margin-left: 55%;
   margin-top: 100px;
+}
+.formStyles{
+  border-radius: 8px;
+  padding: 15px;
+  border-color: grey;
+  border-width: 1px;
+  outline: none;
+  width: 100%;
+  font-size: 1.1rem;
 }

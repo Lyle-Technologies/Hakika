@@ -1,7 +1,9 @@
 import Image from "../Components/Image";
-import Input from "../Components/Input";
 import { Link } from "react-router-dom";
 import Button from "../Components/Button";
+import EmailInputField from "../Components/EmailInputField";
+import PasswordInputField from "../Components/PasswordInputField";
+import CheckBoxInputField from "../Components/CheckBoxInputField";
 
 const Login = () => {
   return (
@@ -32,28 +34,18 @@ const Login = () => {
         <div>
           <label className={"fontFamily mb-3"}>Email address</label>
           <br />
-          <Input
-            type={"text"}
-            id={"name"}
-            name={"name"}
-            placeholder={"Enter your email"}
-          />
+          <EmailInputField />
         </div>
         <div>
           <label className={"fontFamily mb-3"}>Password</label>
           <br />
-          <Input
-            type={"password"}
-            id={"password"}
-            name={"password"}
-            placeholder={"Enter your password"}
-          />
+          <PasswordInputField />
           <Link to={"/"} className={"forgotPassword"}>
             Forgot Password?
           </Link>
           <div className={"d-flex"}>
             <div>
-              <Input type={"checkbox"} name={"rememberMe"} id={"rememberMe"} />
+              <CheckBoxInputField />
             </div>
             <span>Remember Me</span>
           </div>
