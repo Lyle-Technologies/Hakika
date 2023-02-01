@@ -30,3 +30,6 @@ form > *{
   width: 100%;
   font-size: 1.1rem;
 }
+.signUpSection > *{
+  margin-top: 5%;
+}

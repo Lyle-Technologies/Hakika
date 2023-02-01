@@ -4,41 +4,45 @@ import Button from "../Components/Button";
 import EmailInputField from "../Components/EmailInputField";
 import PasswordInputField from "../Components/PasswordInputField";
 import CheckBoxInputField from "../Components/CheckBoxInputField";
+import ImageLogins from "../Components/Image";
 
 const Login = () => {
   return (
     <section className={"container loginSection"}>
-      <h1 className={"fontFamily"}>Welcome Back Steven!!</h1>
+      <h1 className={"fontFamily text-center"}>
+        Welcome Back Steven!!
+        <span>
+          <img
+            className={"img-fluid"}
+            src={
+              "https://res.cloudinary.com/dogmqg8to/image/upload/v1675211691/Hakika%20Ecommerce/wave_uk2quo.png"
+            }
+            alt={"waving hand"}
+          />
+        </span>
+      </h1>
       <p className={"text-center"}>Log in with</p>
       <div className={"d-flex justify-content-around"}>
-        <div className={"shadow p-3 rounded"}>
-          <Image
-            src={
-              "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203177/Hakika%20Ecommerce/google_1_wbwham.png"
-            }
-            alt={"Google"}
-          />
-          <span style={{ marginLeft: "10px" }}>Google</span>
-        </div>
-        <div className={"shadow p-2 rounded"}>
-          <Image
-            src={
-              "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203053/Hakika%20Ecommerce/facebook_1_axdlxj.png"
-            }
-          />
-          <span style={{ marginLeft: "10px" }}>Facebook</span>
-        </div>
+        <ImageLogins
+          text={"Google"}
+          src={
+            "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203177/Hakika%20Ecommerce/google_1_wbwham.png"
+          }
+          alt={"Google"}
+        />
+        <ImageLogins
+          src={
+            "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203053/Hakika%20Ecommerce/facebook_1_axdlxj.png"
+          }
+          text={"Facebook"}
+        />
       </div>
       <p className={"text-center"}>Or continue with</p>
       <form className={"d-flex flex-column"}>
         <div>
-          <label className={"fontFamily mb-3"}>Email address</label>
-          <br />
           <EmailInputField />
         </div>
         <div>
-          <label className={"fontFamily mb-3"}>Password</label>
-          <br />
           <PasswordInputField />
           <Link to={"/"} className={"forgotPassword"}>
             Forgot Password?
