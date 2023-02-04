@@ -1,6 +1,7 @@
 import TopNav from "../Components/TopNav";
 import Search from "../Components/Search";
 import { FiShoppingCart } from "react-icons/fi";
+import CategoriesSection from "../Components/CategoriesSection";
 
 const Home = () => {
   const shoppingCart = {
@@ -13,14 +14,14 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <TopNav />
       <div className={"d-flex justify-content-around mt-3"}>
         <Search placeholder={`Search`} />
-
         <FiShoppingCart style={shoppingCart} />
       </div>
-    </div>
+      <CategoriesSection />
+    </>
   );
 };
 

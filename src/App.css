@@ -1,5 +1,8 @@
-.fontFamily{
+body{
   font-family: 'Exo', sans-serif;
+}
+.boldweight{
+  font-weight: 600;
 }
 .themeColor{
   background:#F58634;
@@ -38,7 +41,11 @@ form > *{
   max-width: 100%;
   font-size: 2rem;
 }
-.br{
-  font-size: 1.5rem;
-  margin-left: 13%;
+
+
+.imageScrollable{
+  width: 100%;
+}
+.imageScrollable::-webkit-scrollbar{
+  display: none;
 }
