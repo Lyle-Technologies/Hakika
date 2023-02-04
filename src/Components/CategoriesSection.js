@@ -1,6 +1,7 @@
 import CategoriesTitles from "./CategoriesTitles";
 import CategoryImages from "./CategoryImages";
 import { FaGreaterThan } from "react-icons/fa";
+import PromotionsSection from "./PromotionsSection";
 
 const CategoriesSection = () => {
   return (
@@ -16,6 +17,7 @@ const CategoriesSection = () => {
       </div>
       <CategoryImages />
       <CategoriesTitles title={"Promotions"} />
+      <PromotionsSection />
       <CategoriesTitles title={"Popular"} />
     </section>
   );
