@@ -2,7 +2,7 @@
   font-family: 'Exo', sans-serif;
 }
 .themeColor{
-  background:#F2994A;
+  background:#F58634;
 }
 .loginSection{
   height: 95vh;
@@ -32,4 +32,13 @@ form > *{
 }
 .signUpSection > *{
   margin-top: 5%;
+}
+.iconStyles{
+  width: 20%;
+  max-width: 100%;
+  font-size: 2rem;
+}
+.br{
+  font-size: 1.5rem;
+  margin-left: 13%;
 }

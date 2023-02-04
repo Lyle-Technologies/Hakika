@@ -1,4 +1,3 @@
-import Image from "../Components/Image";
 import { Link } from "react-router-dom";
 import Button from "../Components/Button";
 import EmailInputField from "../Components/EmailInputField";
@@ -58,7 +57,10 @@ const Login = () => {
       </form>
       <p className={"text-center"}>
         Don't have any account?{" "}
-        <Link to={"/"} style={{ textDecoration: "none", color: "#F2994A" }}>
+        <Link
+          to={"/signup"}
+          style={{ textDecoration: "none", color: "#F2994A" }}
+        >
           Join Us
         </Link>
       </p>
