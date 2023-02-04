@@ -5,7 +5,7 @@ const PromotionCard = () => {
       style={{
         width: "90%",
         margin: "auto",
-        boxShadow: "1px 1px 4px #000000",
+        boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.25)",
         borderRadius: "10px",
       }}
     >

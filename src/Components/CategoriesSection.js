@@ -2,6 +2,7 @@ import CategoriesTitles from "./CategoriesTitles";
 import CategoryImages from "./CategoryImages";
 import { FaGreaterThan } from "react-icons/fa";
 import PromotionsSection from "./PromotionsSection";
+import Products from "./Products";
 
 const CategoriesSection = () => {
   return (
@@ -19,6 +20,8 @@ const CategoriesSection = () => {
       <CategoriesTitles title={"Promotions"} />
       <PromotionsSection />
       <CategoriesTitles title={"Popular"} />
+      <Products />
+      <h1>Pending....</h1>
     </section>
   );
 };
