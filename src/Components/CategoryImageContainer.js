@@ -1,7 +1,7 @@
 const CategoryImageContainer = ({ imageLink, alt, categoryTitle }) => {
   const imageStyle = {
     borderRadius: "9px",
-    width: "90%",
+    width: "93%",
     maxWidth: "100%",
   };
 

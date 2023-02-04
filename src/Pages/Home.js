@@ -2,6 +2,7 @@ import TopNav from "../Components/TopNav";
 import Search from "../Components/Search";
 import { FiShoppingCart } from "react-icons/fi";
 import CategoriesSection from "../Components/CategoriesSection";
+import BottomNavbar from "../Components/BottomNavbar";
 
 const Home = () => {
   const shoppingCart = {
@@ -21,6 +22,7 @@ const Home = () => {
         <FiShoppingCart style={shoppingCart} />
       </div>
       <CategoriesSection />
+      <BottomNavbar />
     </>
   );
 };

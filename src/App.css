@@ -52,3 +52,11 @@ form > *{
 .badgeColor{
   background: #F58634;
 }
+.bottomNavbar{
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  -webkit-box-shadow: 1px 1px 10px #000000;
+  -moz-box-shadow: 1px 1px 10px #000000;
+  box-shadow: 1px 1px 10px #000000;
+  background: #ffffff;
+}
