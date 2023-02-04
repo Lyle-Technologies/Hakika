@@ -41,7 +41,7 @@ const CategoryImages = () => {
   ];
 
   return (
-    <div className={"d-flex imageScrollable overflow-scroll br"}>
+    <div className={"d-flex imageScrollable overflow-scroll"}>
       {images.map((image) => (
         <div key={image.id} className={"col-4"}>
           <CategoryImageContainer

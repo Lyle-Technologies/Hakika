@@ -49,3 +49,6 @@ form > *{
 .imageScrollable::-webkit-scrollbar{
   display: none;
 }
+.badgeColor{
+  background: #F58634;
+}

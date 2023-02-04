@@ -1,9 +1,9 @@
-const CategoriesTitles = ({ title, icon }) => {
+const CategoriesTitles = ({ title }) => {
   return (
     <>
-      <div>
+      <div className={"d-flex justify-content-around"}>
         <h2 className={"boldweight"}>{title}</h2>
-        {/*<p>Arrow</p>*/}
+        <p className={"badge badgeColor"}>see more</p>
       </div>
     </>
   );
