@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <section id="homePage">
       <TopNav />
       <div className={"d-flex justify-content-around mt-3"}>
         <Search placeholder={`Search`} />
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <CategoriesSection />
       <BottomNavbar />
-    </>
+    </section>
   );
 };
 

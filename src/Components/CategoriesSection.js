@@ -21,7 +21,6 @@ const CategoriesSection = () => {
       <PromotionsSection />
       <CategoriesTitles title={"Popular"} />
       <Products />
-      <h1>Pending....</h1>
     </section>
   );
 };
