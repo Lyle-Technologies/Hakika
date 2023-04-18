@@ -2,6 +2,7 @@ import { GrHomeRounded } from "react-icons/gr";
 import { GoLocation } from "react-icons/go";
 import { IoMdContact } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const BottomNavbar = () => {
   const bottomIcons = {
@@ -12,18 +13,18 @@ const BottomNavbar = () => {
     <nav className={"navbar navbar-expand-sm fixed-bottom bottomNavbar"}>
       <div className={"container-fluid"}>
         <ul className={"navbar-nav flex-row w-100 justify-content-between"}>
-          <li className={"nav-item"}>
+          <Link to={"/"}>
             <GrHomeRounded style={bottomIcons} />
-          </li>
+          </Link>
           <li className={"nav-item"}>
             <FiShoppingBag style={bottomIcons} />
           </li>
           <li className={"nav-item"}>
             <GoLocation style={bottomIcons} />
           </li>
-          <li className={"nav-item"}>
+          <Link to={"/account"}>
             <IoMdContact style={bottomIcons} />
-          </li>
+          </Link>
         </ul>
       </div>
     </nav>

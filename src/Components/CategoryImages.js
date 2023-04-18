@@ -2,13 +2,7 @@ import CategoryImageContainer from "./CategoryImageContainer";
 import useFetch from "./useFetch";
 
 const CategoryImages = () => {
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/categories")
-  //     .then((res) => res.json())
-  //     .then((data) => setGategory(data));
-  // }, []);
-
-  const { data: category } = useFetch("http://localhost:8000/categories");
+  const { data: category } = useFetch("http://localhost:3004/categories");
 
   return (
     <div className={"d-flex imageScrollable overflow-scroll"}>
