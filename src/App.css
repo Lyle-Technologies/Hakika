@@ -88,6 +88,8 @@ form > * {
 }
 #accountPage {
   font-weight: 500;
+  min-height: 100vh;
+  padding-bottom: 30px;
 }
 #homePage {
   min-height: 100vh;
