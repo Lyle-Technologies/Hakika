@@ -95,3 +95,26 @@ form > * {
   min-height: 100vh;
   padding-bottom: 30px;
 }
+#productPageSection {
+  padding: 4%;
+  min-height: 100vh;
+}
+.productPageSectionIcons {
+  font-size: 1.7rem;
+  /* padding: 4%; */
+}
+#productImage {
+  width: 60%;
+  display: flex;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+.headings {
+  width: 70%;
+  font-weight: bold;
+}
+.bottom{
+  border-bottom: 2px solid #f58634;
+  color: #f58634;
+}

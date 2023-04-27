@@ -1,9 +1,9 @@
 import { SlOptions } from "react-icons/sl";
 import { FcLikePlaceholder } from "react-icons/fc";
 
-const ProductCard = ({ imageLink, productTitle, productPrice }) => {
+const ProductCard = ({ imageLink, productTitle, productPrice, handleNavigate}) => {
   return (
-    <div className={"productCard mb-5"}>
+    <div className={"productCard mb-5"} onClick={handleNavigate}>
       <div className={"d-flex justify-content-between p-2"}>
         <SlOptions />
         <FcLikePlaceholder />
