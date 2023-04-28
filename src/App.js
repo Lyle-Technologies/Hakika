@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import AccountPage from "./Pages/AccountPage";
 import { ProductProvider } from "./Components/ProductContext";
 import ProductPage from "./Pages/ProductPage";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path={"/"} element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </ProductProvider>
   );

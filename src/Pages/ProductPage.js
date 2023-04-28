@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import useFetch from "../Components/useFetch";
@@ -24,9 +24,17 @@ const ProductPage = () => {
         <AiOutlineLeft onClick={handleGoBack} />
         <BiMenuAltRight />
       </div>
-      <img id="productImage" className="img-fluid" src={products.imageLink} />
+      <img
+        id="productImage"
+        className="img-fluid"
+        src={products.imageLink}
+        alt="product"
+      />
       <h2>{products.name}</h2>
-      <p>Ksh {products.price}.00</p>
+      <p>
+        Ksh {products.price}
+        .00
+      </p>
       <div className="descriptionSection">
         <div className="headings d-flex justify-content-between mt-5">
           <p
