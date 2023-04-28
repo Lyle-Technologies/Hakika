@@ -95,13 +95,12 @@ form > * {
   min-height: 100vh;
   padding-bottom: 30px;
 }
-#productPageSection {
+.productPageSection {
   padding: 4%;
   min-height: 100vh;
 }
 .productPageSectionIcons {
   font-size: 1.7rem;
-  /* padding: 4%; */
 }
 #productImage {
   width: 60%;
@@ -117,4 +116,8 @@ form > * {
 .bottom {
   border-bottom: 2px solid #f58634;
   color: #f58634;
+}
+.searchInput {
+  border: 2px solid grey;
+  outline: none;
 }

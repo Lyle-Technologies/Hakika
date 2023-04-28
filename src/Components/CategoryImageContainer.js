@@ -1,4 +1,9 @@
-const CategoryImageContainer = ({ imageLink, alt, categoryTitle }) => {
+const CategoryImageContainer = ({
+  imageLink,
+  alt,
+  categoryTitle,
+  handleNavigate,
+}) => {
   const imageStyle = {
     borderRadius: "9px",
     width: "93%",
@@ -8,6 +13,7 @@ const CategoryImageContainer = ({ imageLink, alt, categoryTitle }) => {
   return (
     <>
       <img
+        onClick={handleNavigate}
         className={"img-fluid shadow mb-2 m-2"}
         style={imageStyle}
         src={imageLink}

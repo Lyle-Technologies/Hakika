@@ -1,23 +1,13 @@
-const Search = ({ value, handleChange, placeholder }) => {
-  const searchStyles = {
-    border: "2px solid red",
-    padding: "10px",
-    borderRadius: "8px",
-    borderColor: "grey",
-    borderWidth: "2px",
-    outline: "none",
-    fontSize: "1.1rem",
-  };
-
+const Search = ({ value, placeholder }) => {
   return (
-    <input
-      type={"text"}
-      value={value}
-      onChange={handleChange}
-      placeholder={placeholder}
-      style={searchStyles}
-      className={"fontFamily"}
-    />
+    <div className="search-container d-flex">
+      <input
+        type={"text"}
+        value={value}
+        placeholder={placeholder}
+        className="form-control searchInput"
+      />
+    </div>
   );
 };
 

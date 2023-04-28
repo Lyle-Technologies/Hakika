@@ -19,7 +19,7 @@ const ProductPage = () => {
   );
 
   return (
-    <section id="productPageSection">
+    <section className="productPageSection">
       <div className="d-flex justify-content-between productPageSectionIcons">
         <AiOutlineLeft onClick={handleGoBack} />
         <BiMenuAltRight />

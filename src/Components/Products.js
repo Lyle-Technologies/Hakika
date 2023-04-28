@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import { ProductContext } from "./ProductContext";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ const Products = () => {
   const handleNavigate = (id) => {
     navigate(`/product/${id}`);
   };
+
+  products.sort(() => Math.random() - 0.5);
 
   return (
     <div className={"d-flex justify-content-around flex-wrap"}>
