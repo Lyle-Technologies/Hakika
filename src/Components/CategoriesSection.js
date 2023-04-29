@@ -17,7 +17,6 @@ const CategoriesSection = () => {
         </p>
       </div>
       <CategoryImages />
-      <CategoriesTitles title={"Promotions"} />
       <PromotionsSection />
       <CategoriesTitles title={"Popular"} />
       <Products />

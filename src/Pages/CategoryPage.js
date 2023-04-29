@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import Search from "../Components/Search";
 import useFetch from "../Components/useFetch";
+import { RotatingLines } from "react-loader-spinner";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ const CategoryPage = () => {
     navigate(-1);
   };
 
-  const { data: products } = useFetch(
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useFetch(
     `https://hakika-online-store-api.onrender.com/api/${id}/products`
   );
 
@@ -29,17 +34,28 @@ const CategoryPage = () => {
         <BiMenuAltRight />
       </div>
       <Search placeholder={"     Try       'Jacobs Creek'"} />
-      <div className={"d-flex justify-content-around flex-wrap mt-5"}>
-        {products.map((product) => (
-          <ProductCard
-            handleNavigate={() => handleNavigate(product._id)}
-            key={product._id}
-            imageLink={product.imageLink}
-            productPrice={product.price}
-            productTitle={product.name}
+      {isLoading ? (
+        <div className="rotatingIcon">
+          <RotatingLines
+            strokeColor="#f58634"
+            animationDuration="0.75"
+            width="96"
+            visible={true}
           />
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div className={"d-flex justify-content-around flex-wrap mt-5"}>
+          {products.map((product) => (
+            <ProductCard
+              handleNavigate={() => handleNavigate(product._id)}
+              key={product._id}
+              imageLink={product.imageLink}
+              productPrice={product.price}
+              productTitle={product.name}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

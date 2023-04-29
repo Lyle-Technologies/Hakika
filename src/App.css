@@ -94,6 +94,7 @@ form > * {
 #homePage {
   min-height: 100vh;
   padding-bottom: 30px;
+  margin-top: 21%;
 }
 .productPageSection {
   padding: 4%;
@@ -120,4 +121,18 @@ form > * {
 .searchInput {
   border: 2px solid grey;
   outline: none;
+}
+.topNav {
+  background-color: #ffffff;
+}
+.rotatingIcon {
+  min-height: 50vh;
+  margin-top: 50%;
+  display: flex;
+  justify-content: center;
+}
+.rotatingIconHomePage {
+  min-height: 45vh;
+  display: flex;
+  justify-content: center;
 }
