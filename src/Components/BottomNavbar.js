@@ -10,7 +10,7 @@ const BottomNavbar = () => {
   };
 
   return (
-    <nav className={"navbar navbar-expand-sm fixed-bottom bottomNavbar p-2"}>
+    <nav className={"navbar navbar-expand-sm fixed-bottom bottomNavbar p-3"}>
       <div className={"container-fluid"}>
         <ul className={"navbar-nav flex-row w-100 justify-content-between"}>
           <Link to={"/"}>
