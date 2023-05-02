@@ -1,5 +1,6 @@
 body {
   font-family: "Exo", sans-serif;
+  background-color: #f5f5f5;
 }
 .boldweight {
   font-weight: 600;
@@ -52,18 +53,25 @@ form > * {
   background: #f58634;
 }
 .bottomNavbar {
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
-  -webkit-box-shadow: 1px 1px 10px #000000;
-  -moz-box-shadow: 1px 1px 10px #000000;
-  box-shadow: 1px 1px 10px #000000;
+  -webkit-box-shadow: 1px 1px 2px #000000;
+  -moz-box-shadow: 1px 1px 2px #000000;
+  box-shadow: 1px 1px 3px #000000;
   background: #ffffff;
 }
 .productCard {
   width: 45%;
-  min-height: 50%;
-  border-radius: 10px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.productCard img {
+  height: 100%;
+  object-fit: cover;
+}
+.good-images {
+  height: 300px;
+  overflow: hidden;
+  /* border: 2px solid red; */
+  border-radius: 10px;
 }
 .br {
   border: 2px solid red;

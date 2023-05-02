@@ -1,4 +1,4 @@
-import { BiBell } from "react-icons/bi";
+import { IoMdContact } from "react-icons/io";
 
 const TopNav = () => {
   return (
@@ -20,7 +20,7 @@ const TopNav = () => {
         </h5>
         <p>Find anything you want</p>
       </div>
-      <BiBell className={"iconStyles"} />
+      <IoMdContact className="iconStyles" />
     </div>
   );
 };

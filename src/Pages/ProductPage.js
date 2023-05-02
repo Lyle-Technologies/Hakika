@@ -4,7 +4,8 @@ import { BiMenuAltRight } from "react-icons/bi";
 import useFetch from "../Components/useFetch";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { RotatingLines } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
+import ProductDetail from "../Components/ProductDetail";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -31,26 +32,28 @@ const ProductPage = () => {
       </div>
       {isLoading ? (
         <div className="rotatingIcon">
-          <RotatingLines
-            strokeColor="#f58634"
-            animationDuration="0.75"
-            width="96"
+          <Oval
+            height={80}
+            width={80}
+            color="#13678A"
+            wrapperStyle={{}}
+            wrapperClass=""
             visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#13678A"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
           />
         </div>
       ) : (
         <div>
           <img
             id="productImage"
-            className="img-fluid"
+            className="img-fluid w-100"
             src={products.imageLink}
             alt="product"
           />
-          <h2>{products.name}</h2>
-          <p>
-            Ksh {products.price}
-            .00
-          </p>
+          <ProductDetail name={products.name} price={products.price} />
           <div className="descriptionSection">
             <div className="headings d-flex justify-content-between mt-5">
               <p

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import Search from "../Components/Search";
 import useFetch from "../Components/useFetch";
-import { RotatingLines } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
@@ -34,17 +34,24 @@ const CategoryPage = () => {
         <BiMenuAltRight />
       </div>
       <Search placeholder={"     Try       'Jacobs Creek'"} />
+
       {isLoading ? (
         <div className="rotatingIcon">
-          <RotatingLines
-            strokeColor="#f58634"
-            animationDuration="0.75"
-            width="96"
+          <Oval
+            height={80}
+            width={80}
+            color="#13678A"
+            wrapperStyle={{}}
+            wrapperClass=""
             visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#13678A"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
           />
         </div>
       ) : (
-        <div className={"d-flex justify-content-around flex-wrap mt-5"}>
+        <div className={"d-flex justify-content-between flex-wrap mt-5 "}>
           {products.map((product) => (
             <ProductCard
               handleNavigate={() => handleNavigate(product._id)}

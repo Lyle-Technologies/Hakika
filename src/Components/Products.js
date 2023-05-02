@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
-import { RotatingLines } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 import useFetch from "./useFetch";
 
 const Products = () => {
@@ -22,14 +22,20 @@ const Products = () => {
   return (
     <>
       {isLoading ? (
-        <div className="rotatingIconHomePage">
-          <RotatingLines
-            strokeColor="#f58634"
-            animationDuration="0.75"
-            width="96"
+        <div className="rotatingIcon">
+          <Oval
+            height={80}
+            width={80}
+            color="#13678A"
+            wrapperStyle={{}}
+            wrapperClass=""
             visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#13678A"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
           />
-         </div>
+        </div>
       ) : (
         <div className={"d-flex justify-content-around flex-wrap"}>
           {products.map((product) => (
