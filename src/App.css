@@ -1,6 +1,8 @@
 body {
   font-family: "Exo", sans-serif;
   background-color: #f5f5f5;
+  color: #464b4f;
+  /* border: 2px solid red; */
 }
 .boldweight {
   font-weight: 600;
@@ -40,7 +42,7 @@ form > * {
 .iconStyles {
   width: 20%;
   max-width: 100%;
-  font-size: 2rem;
+  font-size: 2.8rem;
 }
 
 .imageScrollable {
@@ -70,7 +72,6 @@ form > * {
 .good-images {
   height: 300px;
   overflow: hidden;
-  /* border: 2px solid red; */
   border-radius: 10px;
 }
 .br {
@@ -105,11 +106,12 @@ form > * {
   margin-top: 25%;
 }
 .productPageSection {
-  padding: 5%;
   min-height: 100vh;
 }
 .productPageSectionIcons {
   font-size: 1.7rem;
+  padding: 4%;
+  box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
 }
 #productImage {
   width: 60%;
@@ -143,4 +145,18 @@ form > * {
   min-height: 45vh;
   display: flex;
   justify-content: center;
+}
+.postGoodsContainer {
+  box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
+}
+#categorySelect{
+  width: 100%;
+}
+#uploadImage{
+  width: 30%;
+}
+.postAddBtn{
+  border: none;
+  padding: 10px;
+  border-radius: 7px;
 }

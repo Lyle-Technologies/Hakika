@@ -16,11 +16,7 @@ const ProductPage = () => {
     navigate(-1);
   };
 
-  const {
-    data: products,
-    isLoading,
-    error,
-  } = useFetch(
+  const { data: products, isLoading } = useFetch(
     `https://hakika-online-store-api.onrender.com/api/products/${id}`
   );
 
@@ -53,34 +49,40 @@ const ProductPage = () => {
             src={products.imageLink}
             alt="product"
           />
-          <ProductDetail name={products.name} price={products.price} />
-          <div className="descriptionSection">
-            <div className="headings d-flex justify-content-between mt-5">
-              <p
-                className={showDescription ? "bottom" : ""}
-                onClick={() => setShowDescription(true)}
-              >
-                Description
-              </p>
-              <p
-                className={showDescription ? "" : "bottom"}
-                onClick={() => setShowDescription(false)}
-              >
-                Reviews
-              </p>
+          <div className="p-3">
+            <ProductDetail name={products.name} price={products.price} />
+            <div className="descriptionSection">
+              <div className="headings d-flex justify-content-between mt-5">
+                <p
+                  className={showDescription ? "bottom" : ""}
+                  onClick={() => setShowDescription(true)}
+                >
+                  Description
+                </p>
+                <p
+                  className={showDescription ? "" : "bottom"}
+                  onClick={() => setShowDescription(false)}
+                >
+                  Reviews
+                </p>
+              </div>
+              <div className="reviewsSection mt-1">
+                {showDescription ? (
+                  <p>{products.description}</p>
+                ) : (
+                  <p>Reviews</p>
+                )}
+              </div>
             </div>
-            <div className="reviewsSection mt-1">
-              {showDescription ? <p>{products.description}</p> : <p>Reviews</p>}
+            <div className="buttonSection d-flex justify-content-between mt-5">
+              <button
+                className="btn w-40"
+                style={{ border: "2px solid #f58634", color: "#f58634" }}
+              >
+                Add to Cart
+              </button>
+              <button className="btn themeColor text-white w-50">Call</button>
             </div>
-          </div>
-          <div className="buttonSection d-flex justify-content-between mt-5">
-            <button
-              className="btn w-40"
-              style={{ border: "2px solid #f58634", color: "#f58634" }}
-            >
-              Add to Cart
-            </button>
-            <button className="btn themeColor text-white w-50">Call</button>
           </div>
         </div>
       )}

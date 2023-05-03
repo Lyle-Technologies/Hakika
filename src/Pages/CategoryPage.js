@@ -21,7 +21,6 @@ const CategoryPage = () => {
   const {
     data: products,
     isLoading,
-    error,
   } = useFetch(
     `https://hakika-online-store-api.onrender.com/api/${id}/products`
   );
@@ -33,36 +32,38 @@ const CategoryPage = () => {
         <p>Products</p>
         <BiMenuAltRight />
       </div>
-      <Search placeholder={"     Try       'Jacobs Creek'"} />
+      <div className="p-3">
+        <Search placeholder={"     Try       'Jacobs Creek'"} />
 
-      {isLoading ? (
-        <div className="rotatingIcon">
-          <Oval
-            height={80}
-            width={80}
-            color="#13678A"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-            ariaLabel="oval-loading"
-            secondaryColor="#13678A"
-            strokeWidth={2}
-            strokeWidthSecondary={2}
-          />
-        </div>
-      ) : (
-        <div className={"d-flex justify-content-between flex-wrap mt-5 "}>
-          {products.map((product) => (
-            <ProductCard
-              handleNavigate={() => handleNavigate(product._id)}
-              key={product._id}
-              imageLink={product.imageLink}
-              productPrice={product.price}
-              productTitle={product.name}
+        {isLoading ? (
+          <div className="rotatingIcon">
+            <Oval
+              height={80}
+              width={80}
+              color="#13678A"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#13678A"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
             />
-          ))}
-        </div>
-      )}
+          </div>
+        ) : (
+          <div className={"d-flex justify-content-between flex-wrap mt-5"}>
+            {products.map((product) => (
+              <ProductCard
+                handleNavigate={() => handleNavigate(product._id)}
+                key={product._id}
+                imageLink={product.imageLink}
+                productPrice={product.price}
+                productTitle={product.name}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 };

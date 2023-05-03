@@ -1,6 +1,13 @@
 import { IoMdContact } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const TopNav = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/profile");
+  };
+
   return (
     <div
       className={
@@ -20,7 +27,7 @@ const TopNav = () => {
         </h5>
         <p>Find anything you want</p>
       </div>
-      <IoMdContact className="iconStyles" />
+      <IoMdContact className="iconStyles" onClick={handleNavigate} />
     </div>
   );
 };

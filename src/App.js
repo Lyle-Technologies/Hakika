@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<SignUp />} />
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/profile" element={<AccountPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/category/:id/products" element={<CategoryPage />} />
         <Route path="/post-add" element={<PostAd />} />

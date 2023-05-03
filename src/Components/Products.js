@@ -14,7 +14,6 @@ const Products = () => {
   const {
     data: products,
     isLoading,
-    error,
   } = useFetch("https://hakika-online-store-api.onrender.com/api/products");
 
   products.sort(() => Math.random() - 0.5);

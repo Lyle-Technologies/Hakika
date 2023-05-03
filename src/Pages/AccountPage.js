@@ -1,7 +1,9 @@
 import BottomNavbar from "../Components/BottomNavbar";
-import { FiShoppingCart, FiShoppingBag } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi";
 import AccountDetails from "../Components/AccountDetails";
-import { BiEnvelope, BiHeart } from "react-icons/bi";
+import { BiHeart } from "react-icons/bi";
+import { MdOutlineFeedback } from "react-icons/md";
+import { IoMdContact } from "react-icons/io";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import SettingDetails from "../Components/SettingDetails";
 
@@ -20,12 +22,12 @@ const AccountPage = () => {
         <h6 className="mb-4">MY HAKIKA ACCOUNT</h6>
         <div className="accountCard p-4">
           <AccountDetails
-            icon={<FiShoppingBag style={{ marginRight: "20px" }} />}
-            title={"Orders"}
+            icon={<IoMdContact style={{ marginRight: "20px" }} />}
+            title={"Personal Details"}
           />
           <AccountDetails
-            icon={<BiEnvelope style={{ marginRight: "20px" }} />}
-            title={"Inbox"}
+            icon={<MdOutlineFeedback style={{ marginRight: "20px" }} />}
+            title={"Feedback"}
           />
           <AccountDetails
             icon={<BiHeart style={{ marginRight: "20px" }} />}
@@ -41,8 +43,8 @@ const AccountPage = () => {
         <h6 className="mb-4">MY SETTINGS</h6>
         <div className="accountCard p-4">
           <SettingDetails title={"Address Book"} />
-          <SettingDetails title={"Account Management"} />
-          <SettingDetails title={"Closed Account"} />
+          <SettingDetails title={"Delete my account permanently"} />
+          <SettingDetails title={"Logout"} />
         </div>
       </div>
       <BottomNavbar />
