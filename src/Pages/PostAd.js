@@ -122,11 +122,33 @@ const PostAd = () => {
                   <TextField
                     required
                     type="number"
-                    className="w-100"
+                    className="w-100 mb-5"
                     error={!!error}
                     helperText={error?.message}
                     inputRef={onChange}
                     label="Price"
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
+                  />
+                )}
+              />
+              <Controller
+                name="phoneNumber"
+                control={control}
+                defaultValue={""}
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    required
+                    type="tel"
+                    variant="outlined"
+                    className="w-100"
+                    error={!!error}
+                    helperText={error?.message}
+                    inputRef={onChange}
+                    label="Your phone number"
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                   />
