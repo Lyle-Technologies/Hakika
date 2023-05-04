@@ -149,14 +149,16 @@ form > * {
 .postGoodsContainer {
   box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
 }
-#categorySelect{
+#categorySelect {
   width: 100%;
 }
-#uploadImage{
+#uploadImage {
   width: 30%;
 }
-.postAddBtn{
+.postAddBtn {
   border: none;
   padding: 10px;
   border-radius: 7px;
+}
+#image-upload{
 }

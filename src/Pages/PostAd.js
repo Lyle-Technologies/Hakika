@@ -7,10 +7,23 @@ import {
   FormControl,
   Select,
   TextField,
+  Input,
+  Button,
+  Box,
 } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
+import { useEffect, useState } from "react";
 
 const PostAd = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    if (selectedImage) {
+      setImageUrl(URL.createObjectURL(selectedImage));
+    }
+  }, [selectedImage]);
+
   const navigate = useNavigate();
   const { handleSubmit, control, watch } = useForm();
 
@@ -18,6 +31,7 @@ const PostAd = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    // console.log(data.title)
   };
 
   const handleGoBack = () => {
@@ -65,11 +79,43 @@ const PostAd = () => {
           <div className="uploadPhotoContainer mt-4 p-2">
             <h6>Add photo</h6>
             <p className="fs- fw-bold">First picture - is the title picture</p>
-            <img
-              src="https://res.cloudinary.com/dogmqg8to/image/upload/v1683107834/Hakika%20Ecommerce/2609995_6324-removebg-preview_1_bso0ec.png"
-              className="img-fluid rounded-circle"
-              id="uploadImage"
-              alt="upload icon"
+            <Controller
+              name="image"
+              control={control}
+              rules={{ required: true }}
+              render={({ field: { onChange } }) => (
+                <div className="d-flex align-items-center justify-content-around">
+                  <Input
+                    type="file"
+                    accept="image"
+                    id="select-image"
+                    hidden
+                    onChange={(e) => {
+                      onChange(e.target.files[0]);
+                      setSelectedImage(e.target.files[0]);
+                    }}
+                  />
+                  <label htmlFor="select-image">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      component="span"
+                    >
+                      Upload Image
+                    </Button>
+                  </label>
+                  {imageUrl && selectedImage && (
+                    <Box className="col-3" mt={1} textAlign={"center"}>
+                      <div>Image Preview:</div>
+                      <img
+                        className="img-fluid"
+                        src={imageUrl}
+                        alt={selectedImage.name}
+                      />
+                    </Box>
+                  )}
+                </div>
+              )}
             />
             <p className="mt-4 fs- fw-bold">
               Each picture must not exceed 5 Mb <br />
@@ -82,7 +128,11 @@ const PostAd = () => {
                 name="title"
                 control={control}
                 defaultValue={""}
-                render={({ field: { onChange, value } }) => (
+                rules={{ required: "Value cannot be empty" }}
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
                   <TextField
                     required
                     className="mb-5 w-100"
@@ -90,7 +140,7 @@ const PostAd = () => {
                     inputRef={onChange}
                     onChange={(e) => onChange(e.target.value)}
                     label="Title"
-                    helperText="Please enter the title"
+                    helperText={error?.message}
                   />
                 )}
               />
@@ -151,13 +201,30 @@ const PostAd = () => {
                     placeholder="0712345685"
                     type="tel"
                     variant="outlined"
-                    className="w-100"
+                    className="w-100 mb-5"
                     error={!!error}
                     helperText={error?.message}
                     inputRef={onChange}
                     label="Your phone number"
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
+                  />
+                )}
+              />
+              <Controller
+                name="name"
+                control={control}
+                defaultValue={""}
+                render={({ field: { onChange, value } }) => (
+                  <TextField
+                    required
+                    disabled
+                    className="mb-5 w-100"
+                    value={value}
+                    inputRef={onChange}
+                    onChange={(e) => onChange(e.target.value)}
+                    label="Steven Otieno"
+                    placeholder="Name"
                   />
                 )}
               />
