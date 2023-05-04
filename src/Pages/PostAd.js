@@ -98,7 +98,10 @@ const PostAd = () => {
                 name="description"
                 control={control}
                 defaultValue={""}
-                render={({ field: { onChange, value } }) => (
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
                   <TextField
                     className="w-100 mb-5"
                     required
@@ -108,6 +111,8 @@ const PostAd = () => {
                     label="Description"
                     multiline
                     rows={4}
+                    error={error}
+                    helperText={error?.message}
                   />
                 )}
               />
@@ -136,12 +141,14 @@ const PostAd = () => {
                 name="phoneNumber"
                 control={control}
                 defaultValue={""}
+                rules={{ pattern: /^07\d{8}$/ }}
                 render={({
                   field: { onChange, value },
                   fieldState: { error },
                 }) => (
                   <TextField
                     required
+                    placeholder="0712345685"
                     type="tel"
                     variant="outlined"
                     className="w-100"
