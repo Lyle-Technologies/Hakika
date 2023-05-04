@@ -106,7 +106,6 @@ const PostAd = () => {
                   </label>
                   {imageUrl && selectedImage && (
                     <Box className="col-3" mt={1} textAlign={"center"}>
-                      <div>Image Preview:</div>
                       <img
                         className="img-fluid"
                         src={imageUrl}
