@@ -6,7 +6,7 @@ import Products from "./Products";
 
 const CategoriesSection = () => {
   return (
-    <section id={"categories"} className={"mt-4"}>
+    <section id={"categories"} className={""}>
       <div className={"d-flex justify-content-around"}>
         <h2 className={"boldweight"}>Categories</h2>
         <p style={{ color: "#F58634" }}>

@@ -11,7 +11,7 @@ const TopNav = () => {
   return (
     <div
       className={
-        "d-flex align-items-center justify-content-around fontFamily fixed-top container topNav"
+        "d-flex align-items-center justify-content-around fontFamily fixed-top topNav"
       }
     >
       <img

@@ -31,7 +31,6 @@ const PostAd = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    // console.log(data.title)
   };
 
   const handleGoBack = () => {
@@ -78,7 +77,6 @@ const PostAd = () => {
           />
           <div className="uploadPhotoContainer mt-4 p-2">
             <h6>Add photo</h6>
-            <p className="fs- fw-bold">First picture - is the title picture</p>
             <Controller
               name="image"
               control={control}
@@ -87,7 +85,7 @@ const PostAd = () => {
                 <div className="d-flex align-items-center justify-content-around">
                   <Input
                     type="file"
-                    accept="image"
+                    accept="image/"
                     id="select-image"
                     hidden
                     onChange={(e) => {

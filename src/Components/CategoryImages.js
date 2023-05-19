@@ -14,9 +14,9 @@ const CategoryImages = () => {
   };
 
   return (
-    <div className={"d-flex imageScrollable overflow-scroll"}>
+    <div className={"d-flex imageScrollable overflow-scroll categoryImageContainer"}>
       {category.map((image) => (
-        <div key={image._id} className={"col-4"}>
+        <div key={image._id} className={"col-4 categoryImages"}>
           <CategoryImageContainer
             handleNavigate={() => handleNavigate(image._id)}
             imageLink={image.categoryImageLink}
