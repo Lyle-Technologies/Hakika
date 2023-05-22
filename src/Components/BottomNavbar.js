@@ -17,7 +17,9 @@ const BottomNavbar = () => {
   };
 
   return (
-    <nav className={"navbar navbar-expand-sm fixed-bottom bottomNavbar"}>
+    <nav
+      className={"navbar autohide navbar-expand-sm fixed-bottom bottomNavbar"}
+    >
       <ul
         className={
           "navbar-nav flex-row w-100 justify-content-between align-items-center p-3"
