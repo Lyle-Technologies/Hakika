@@ -18,7 +18,7 @@ const TopNav = () => {
         className={"img-fluid banner iconStyles"}
         alt={"Logo"}
         src={
-          "https://res.cloudinary.com/dogmqg8to/image/upload/v1675457492/Hakika%20Ecommerce/logo_mydltj.png"
+          "https://res.cloudinary.com/dogmqg8to/image/upload/v1684785219/Hakika%20Ecommerce/hakikaLogo_bove2r.png"
         }
       />
       <div className={"mt-3"}>
