@@ -6,8 +6,8 @@ import Products from "./Products";
 
 const CategoriesSection = () => {
   return (
-    <section id={"categories"} className={""}>
-      <div className={"d-flex justify-content-around"}>
+    <section id={"categories"}>
+      <div className={"d-flex justify-content-around mb-3"}>
         <h2 className={"boldweight"}>Categories</h2>
         <p style={{ color: "#F58634" }}>
           view all

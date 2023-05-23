@@ -18,7 +18,7 @@ const BottomNavbar = () => {
 
   return (
     <nav
-      className={"navbar autohide navbar-expand-sm fixed-bottom bottomNavbar"}
+      className={"navbar bottomNavbar navbar-expand-sm fixed-bottom bottomNavbar"}
     >
       <ul
         className={

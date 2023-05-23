@@ -1,8 +1,7 @@
 body {
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #f5f5f5;
   color: #464b4f;
-  /* border: 2px solid red; */
 }
 .boldweight {
   font-weight: 600;
@@ -71,6 +70,9 @@ form > * {
   border-radius: 7px;
   width: 100%;
 }
+.categoryImages {
+  width: 35%;
+}
 .accountInfo {
   background-color: #000000;
 }
@@ -97,7 +99,7 @@ form > * {
 #homePage {
   min-height: 100vh;
   padding-bottom: 30px;
-  margin-top: 25%;
+  margin-top: 22%;
 }
 .productPageSection {
   min-height: 100vh;
@@ -127,15 +129,20 @@ form > * {
   outline: none;
 }
 .topNav {
-  background-color: #ffffff;
+  background-color: #fb7515;
   box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
+  color: #ffffff;
+  height: 70px;
 }
 .promotionCard {
-  width: 90%;
+  width: 88%;
   height: 150px;
   margin: auto;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+}
+.promotionCard > img{
+  object-fit: cover;
 }
 .rotatingIcon {
   min-height: 50vh;
@@ -165,15 +172,19 @@ form > * {
 .br {
   border: 2px solid red;
 }
+.bannerSection > * {
+  display: none;
+}
+.bannerSection .MuiStack-root {
+  display: none;
+}
 
-
-/* Ipads, Tablets */
+/* Mobile Devices */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .iconStyles {
     width: 10%;
   }
   .categoryImages {
-    /* border: 2px solid red; */
     width: 20%;
   }
   #homePage {
@@ -191,13 +202,119 @@ form > * {
   .productCard {
     width: 40%;
   }
+  .bannerSection > * {
+    display: none;
+  }
+  .bannerSection .MuiStack-root {
+    display: none;
+  }
 }
-/* Small screens, laptops */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+/* Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+  .topNav{
+    height: 70px;
+    color: #ffffff;
+  }
+  .iconStyles{
+    width: 10%;
+  }
+  .categoryImages {
+    width: 20%;
+  }
+  #homePage{
+    margin-top: 13%;
+    padding-bottom: 30px;
+  }
+  .promotionCard {
+    width: 80%;
+    height: 180px;
+  }
+  .promotionCard > img{
+    object-fit: cover;
+  }
 }
 /* Desktops, large screens */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .bottomNavbar {
+    display: none;
+  }
+  .topNav {
+    height: 70px;
+    background-color: #fb7515;
+    color: #ffffff;
+  }
+  .iconStyles {
+    width: 5%;
+  }
+  #homePage {
+    margin-top: 0;
+  }
+  .bannerSection {
+    background-image: url("https://res.cloudinary.com/dogmqg8to/image/upload/v1684788337/Hakika%20Ecommerce/banner_r8ktcb.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    margin-bottom: 3%;
+    flex-direction: column;
+  }
+  .bannerSection > * {
+    display: block;
+  }
+  .bannerSection .MuiStack-root {
+    display: block;
+  }
+  .bannerSection p {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 2%;
+  }
+  .bannerSection span {
+    padding: 5px;
+    width: 15%;
+  }
 }
 /* Extra large screens */
 @media only screen and (min-width: 1201px) {
+  .bottomNavbar {
+    display: none;
+  }
+  .topNav {
+    height: 70px;
+    background-color: #fb7515;
+    color: #ffffff;
+  }
+  .iconStyles {
+    width: 5%;
+  }
+  #homePage {
+    margin-top: 0;
+  }
+  .bannerSection {
+    background-image: url("https://res.cloudinary.com/dogmqg8to/image/upload/v1684788337/Hakika%20Ecommerce/banner_r8ktcb.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    margin-bottom: 3%;
+    flex-direction: column;
+  }
+  .bannerSection > * {
+    display: block;
+  }
+  .bannerSection .MuiStack-root {
+    display: block;
+  }
+  .bannerSection p {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 2%;
+  }
+  .bannerSection span {
+    padding: 5px;
+    width: 10%;
+  }
+  .search {
+    background-color: #ffffff;
+  }
 }
