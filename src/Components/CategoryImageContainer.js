@@ -4,22 +4,17 @@ const CategoryImageContainer = ({
   categoryTitle,
   handleNavigate,
 }) => {
-  const imageStyle = {
-    borderRadius: "9px",
-    width: "93%",
-    maxWidth: "100%",
-  };
-
   return (
     <>
       <img
         onClick={handleNavigate}
-        className={"img-fluid shadow mb-2 m-2"}
-        style={imageStyle}
+        className={"img-fluid shadow categoryPicture mb-2 m-2"}
         src={imageLink}
         alt={"sample"}
       />
-      <p className={"text-center"}>{categoryTitle}</p>
+      <p onClick={handleNavigate} className={"text-center"}>
+        {categoryTitle}
+      </p>
     </>
   );
 };

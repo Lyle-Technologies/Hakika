@@ -2,6 +2,7 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #f5f5f5;
   color: #464b4f;
+  position: relative;
 }
 .boldweight {
   font-weight: 600;
@@ -141,7 +142,7 @@ form > * {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
-.promotionCard > img{
+.promotionCard > img {
   object-fit: cover;
 }
 .rotatingIcon {
@@ -157,6 +158,11 @@ form > * {
 }
 .postGoodsContainer {
   box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
+}
+.categoryImages img{
+  border-radius: 9px;
+  width: 93%;
+  max-width: 100%;
 }
 #categorySelect {
   width: 100%;
@@ -176,6 +182,9 @@ form > * {
   display: none;
 }
 .bannerSection .MuiStack-root {
+  display: none;
+}
+.arrowRightIcon{
   display: none;
 }
 
@@ -211,17 +220,17 @@ form > * {
 }
 /* Tablets */
 @media only screen and (min-width: 769px) and (max-width: 1023px) {
-  .topNav{
+  .topNav {
     height: 70px;
     color: #ffffff;
   }
-  .iconStyles{
+  .iconStyles {
     width: 10%;
   }
   .categoryImages {
     width: 20%;
   }
-  #homePage{
+  #homePage {
     margin-top: 13%;
     padding-bottom: 30px;
   }
@@ -229,7 +238,7 @@ form > * {
     width: 80%;
     height: 180px;
   }
-  .promotionCard > img{
+  .promotionCard > img {
     object-fit: cover;
   }
 }
@@ -248,6 +257,13 @@ form > * {
   }
   #homePage {
     margin-top: 0;
+  }
+  .promotionCard {
+    height: 190px;
+    width: 80%;
+  }
+  .promotionCard > img {
+    object-fit: cover;
   }
   .bannerSection {
     background-image: url("https://res.cloudinary.com/dogmqg8to/image/upload/v1684788337/Hakika%20Ecommerce/banner_r8ktcb.png");
@@ -273,6 +289,51 @@ form > * {
     padding: 5px;
     width: 15%;
   }
+  .imageScrollable{
+    flex-direction: column;
+    flex-basis: 40%;
+    height: 70vh;
+    position:sticky;
+    top: 8%;
+    margin-left: 14px;
+    box-shadow: 0 0 10px;
+    padding: 18px;
+  }
+  .categoryImages{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: grey;
+    font-weight: bold;
+  }
+  .categoryImages p{
+    width: 80%;
+  }
+  .categoryImages p:hover{
+    color: #f58634;
+  }
+  .categoryImages > img {
+    width: 20%;
+  }
+  .categoryImages > img:hover{
+    color: #f58634;
+  }
+  .categoriesViewAll > *{
+    display: none;
+  }
+  .arrowRightIcon{
+    display: block;
+    align-self: center;
+  }
+  .categoryProductSection{
+    display: flex;
+    gap: 4%;
+  }
+  .productsPromotionSection{
+    width: 100%;
+  }
 }
 /* Extra large screens */
 @media only screen and (min-width: 1201px) {
@@ -295,8 +356,7 @@ form > * {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 60vh;
-    margin-bottom: 3%;
+    min-height: 70vh;
     flex-direction: column;
   }
   .bannerSection > * {
@@ -317,4 +377,50 @@ form > * {
   .search {
     background-color: #ffffff;
   }
+  .imageScrollable {
+    flex-direction: column;
+    flex-basis: 30%;
+    height: 70vh;
+    position:sticky;
+    top: 8%;
+    margin-left: 14px;
+    box-shadow: 0 0 10px;
+    padding: 18px;
+  }
+  .categoryImages{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: grey;
+    font-weight: bold;
+  }
+  .categoryImages p{
+    width: 80%;
+  }
+  .categoryImages p:hover{
+    color: #f58634;
+  }
+  .categoryImages > img {
+    width: 15%;
+  }
+  .categoryImages > img:hover{
+    color: #f58634;
+  }
+  .categoriesViewAll > *{
+    display: none;
+  }
+  .arrowRightIcon{
+    display: block;
+    align-self: center;
+  }
+  .categoryProductSection{
+    display: flex;
+    gap: 4%;
+  }
+  .productsPromotionSection{
+    width: 100%;
+  }
+  
 }

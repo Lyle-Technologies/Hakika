@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import useFetch from "./useFetch";
+import CategoriesTitles from "./CategoriesTitles";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ const Products = () => {
   products.sort(() => Math.random() - 0.5);
 
   return (
-    <>
+    <div>
+      <CategoriesTitles title={"Popular"} />
       {isLoading ? (
         <div className="rotatingIcon">
           <Oval
@@ -48,7 +50,7 @@ const Products = () => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

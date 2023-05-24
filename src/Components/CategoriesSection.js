@@ -1,13 +1,12 @@
-import CategoriesTitles from "./CategoriesTitles";
 import CategoryImages from "./CategoryImages";
 import { FaGreaterThan } from "react-icons/fa";
-import PromotionsSection from "./PromotionsSection";
 import Products from "./Products";
+import PromotionCard from "./PromotionCard";
 
 const CategoriesSection = () => {
   return (
     <section id={"categories"}>
-      <div className={"d-flex justify-content-around mb-3"}>
+      <div className={"d-flex justify-content-around categoriesViewAll mb-3"}>
         <h2 className={"boldweight"}>Categories</h2>
         <p style={{ color: "#F58634" }}>
           view all
@@ -16,10 +15,13 @@ const CategoriesSection = () => {
           </span>
         </p>
       </div>
-      <CategoryImages />
-      <PromotionsSection />
-      <CategoriesTitles title={"Popular"} />
-      <Products />
+      <div className="categoryProductSection">
+        <CategoryImages />
+        <div className="productsPromotionSection">
+          <PromotionCard />
+          <Products />
+        </div>
+      </div>
     </section>
   );
 };
