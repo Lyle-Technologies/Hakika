@@ -106,7 +106,13 @@ form > * {
     margin-left: 5px;
     color: #F2994A;
 }
-
+.callBtn{
+    background: #F2994A !important;
+    color: #fff !important;
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+}
 #passwordContainer {
     position: relative;
 }

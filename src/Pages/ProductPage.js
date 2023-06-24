@@ -5,6 +5,7 @@ import useFetch from "../Components/useFetch";
 import { useNavigate, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import ProductDetail from "../Components/ProductDetail";
+import { Button } from "react-bootstrap";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ const ProductPage = () => {
               >
                 Add to Cart
               </button>
-              <button className="btn themeColor text-white w-50">Call</button>
+              <button className="w-50 btn callBtn">Call</button>
             </div>
           </div>
         </div>
