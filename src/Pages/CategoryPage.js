@@ -5,25 +5,40 @@ import ProductCard from "../Components/ProductCard";
 import Search from "../Components/Search";
 import useFetch from "../Components/useFetch";
 import { Oval } from "react-loader-spinner";
+import { useEffect, useState } from "react";
 
 const CategoryPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const handleNavigate = (id) => {
     navigate(`/product/${id}`);
   };
 
+  const { data: products, isLoading } = useFetch(
+    `https://hakika-online-store-api.onrender.com/api/${id}/products`
+  );
+
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  const {
-    data: products,
-    isLoading,
-  } = useFetch(
-    `https://hakika-online-store-api.onrender.com/api/${id}/products`
-  );
+  useEffect(() => {
+    if (products) {
+      setFilteredProducts(products);
+    }
+  }, [products]);
+
+  const handleSearchChange = (query) => {
+    setSearchQuery(query); // update the search state
+    const filteredProducts = products.filter((item) => {
+      const productName = item.name.toLowerCase();
+      return productName.includes(query.toLowerCase());
+    });
+    setFilteredProducts(filteredProducts); // update the filtered data state with the filter results
+  };
 
   return (
     <section className="productPageSection">
@@ -33,7 +48,7 @@ const CategoryPage = () => {
         <BiMenuAltRight />
       </div>
       <div className="p-3">
-        <Search placeholder={"     Try       'Jacobs Creek'"} />
+        <Search onChange={handleSearchChange} />
 
         {isLoading ? (
           <div className="rotatingIcon">
@@ -50,9 +65,9 @@ const CategoryPage = () => {
               strokeWidthSecondary={2}
             />
           </div>
-        ) : (
+        ) : filteredProducts.length > 0 ? (
           <div className={"d-flex justify-content-between flex-wrap mt-5"}>
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard
                 handleNavigate={() => handleNavigate(product._id)}
                 key={product._id}
@@ -62,6 +77,10 @@ const CategoryPage = () => {
               />
             ))}
           </div>
+        ) : (
+          <p className={"mt-5 alert alert-danger text-center"}>
+            No products available
+          </p>
         )}
       </div>
     </section>

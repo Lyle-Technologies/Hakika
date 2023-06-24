@@ -12,12 +12,12 @@ const Products = () => {
     navigate(`/product/${id}`);
   };
 
-  const {
-    data: products,
-    isLoading,
-  } = useFetch("https://hakika-online-store-api.onrender.com/api/products");
+  const { data: products, isLoading } = useFetch(
+    "https://hakika-online-store-api.onrender.com/api/products/"
+  );
 
-  products.sort(() => Math.random() - 0.5);
+  // products.sort(() => Math.random() - 0.5);
+  const popularProducts = products.slice(0, 7);
 
   return (
     <div>
@@ -39,7 +39,7 @@ const Products = () => {
         </div>
       ) : (
         <div className={"d-flex justify-content-around flex-wrap"}>
-          {products.map((product) => (
+          {popularProducts.map((product) => (
             <ProductCard
               handleNavigate={() => handleNavigate(product._id)}
               key={product._id}

@@ -4,9 +4,7 @@ import useFetch from "./useFetch";
 export const ProductContext = createContext();
 
 export const ProductProvider = (props) => {
-  const { data: products } = useFetch(
-    "https://hakika-online-store-api.onrender.com/api/products"
-  );
+  const { data: products } = useFetch("http://localhost:8000/api/products/");
   return (
     <ProductContext.Provider value={products}>
       {props.children}
