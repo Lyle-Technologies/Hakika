@@ -17,7 +17,7 @@ const ProductPage = () => {
   };
 
   const { data: products, isLoading } = useFetch(
-    `http://localhost:8000/api/products/${id}`
+    `https://hakika-online-store-api.onrender.com/api/products/${id}`
   );
 
   return (
