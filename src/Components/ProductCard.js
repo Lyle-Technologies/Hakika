@@ -6,7 +6,12 @@ const ProductCard = ({
 }) => {
   return (
     <div className={"productCard mb-5"} onClick={handleNavigate}>
-      <img className={"img-fluid"} src={imageLink} alt={"sample"} />
+      <img
+        className={"img-fluid"}
+        src={imageLink}
+        alt={"sample"}
+        loading={"lazy"}
+      />
 
       <div className={"p-2"}>
         <p className={"boldweight"}>{productTitle}</p>
