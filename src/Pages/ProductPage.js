@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineLeft } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import useFetch from "../Components/useFetch";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import ProductDetail from "../Components/ProductDetail";
 
