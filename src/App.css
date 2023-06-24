@@ -48,10 +48,88 @@ form > * {
     margin-top: 5%;
 }
 
+.signUpSection {
+    min-height: 100vh;
+    padding: 25px;
+}
+
+.signUpSection h1 {
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Exo', sans-serif;
+}
+
+.signUpSection label {
+    font-weight: 600;
+    line-height: 20px;
+    font-family: 'Exo', sans-serif;
+}
+
+.signUpSection input {
+    border: 1px solid rgba(0, 0, 0, 0.27);
+    border-radius: 10px;
+    padding: 8px 24px 8px 24px;
+    font-family: 'Poppins', sans-serif;
+    color: #A0A3BD;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+}
+
+.signUpSection button {
+    background: #F2994A !important;
+    color: #fff !important;
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 14px 32px;
+    width: 100%;
+}
+
+.signUpWithImages {
+    border-radius: 11px;
+    box-shadow: 4px 4px 9px 0 rgba(0, 0, 0, 0.25);
+    font-family: 'Exo', sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.61);
+}
+
+.alreadyHaveAccount {
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    margin-top: 50px;
+    line-height: 20px;
+}
+
+.alreadyHaveAccount a {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #F2994A;
+}
+
+#passwordContainer {
+    position: relative;
+}
+
+.passwordIcon {
+    font-size: 1.4rem;
+    color: #A0A3BD;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+}
+
 .iconStyles {
     width: 20%;
     max-width: 100%;
     font-size: 2.5rem;
+}
+
+.borders {
+    background: rgba(0, 0, 0, 0.43);
+    width: 100px;
+    height: 1px;
+    margin-top: 13px;
 }
 
 .imageScrollable {
@@ -138,7 +216,8 @@ form > * {
     object-fit: cover;
     height: 100%;
 }
-.productImageContainer{
+
+.productImageContainer {
     overflow: hidden;
     position: relative;
     height: 40vh;
