@@ -1,11 +1,12 @@
 const ImageLogins = ({ src, alt, text }) => {
   const styles = {
-    width: "15%",
+    width: "35px",
+    height: "35px",
     maxWidth: "100%",
   };
 
   return (
-    <div className={"shadow p-3 rounded text-center"}>
+    <div className={"p-3 text-center signUpWithImages"}>
       <img style={styles} className={"img-fluid"} src={src} alt={alt} />
       <span style={{ marginLeft: "10px" }}>{text}</span>
     </div>
