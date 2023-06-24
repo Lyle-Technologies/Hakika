@@ -2,16 +2,16 @@ import { AiOutlineLeft } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import {
+  Box,
+  Button,
+  FormControl,
+  Input,
   InputLabel,
   MenuItem,
-  FormControl,
   Select,
   TextField,
-  Input,
-  Button,
-  Box,
 } from "@mui/material";
-import { useForm, Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 const PostAd = () => {
@@ -85,7 +85,7 @@ const PostAd = () => {
                 <div className="d-flex align-items-center justify-content-around">
                   <Input
                     type="file"
-                    accept="image/"
+                    inputProps={{ accept: "image/*" }}
                     id="select-image"
                     hidden
                     onChange={(e) => {

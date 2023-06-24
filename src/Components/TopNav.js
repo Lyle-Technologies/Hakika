@@ -11,7 +11,7 @@ const TopNav = () => {
   return (
     <div
       className={
-        "d-flex align-items-center justify-content-around fontFamily fixed-top topNav"
+        "d-flex align-items-center justify-content-between fontFamily fixed-top topNav"
       }
     >
       <img
@@ -21,10 +21,7 @@ const TopNav = () => {
           "https://res.cloudinary.com/dogmqg8to/image/upload/v1684785219/Hakika%20Ecommerce/hakikaLogo_bove2r.png"
         }
       />
-      <div className={"mt-3"}>
-        <h5>
-          <b>Discover</b>
-        </h5>
+      <div>
         <p>Find anything you want</p>
       </div>
       <IoMdContact className="iconStyles" onClick={handleNavigate} />

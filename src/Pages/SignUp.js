@@ -2,7 +2,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
 const SignUp = () => {
-  const { handleSubmit, control, watch } = useForm();
+  const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);

@@ -8,8 +8,12 @@ const PromotionCard = () => {
   };
 
   return (
-    <div className={"d-flex justify-content-between badgeColor promotionCard mb-4 mt-2"}>
-      <div className={"p-3 w-50"}>
+    <div
+      className={
+        "d-flex justify-content-between badgeColor promotionCard mb-4 mt-2"
+      }
+    >
+      <div className={"p-3 w-30"}>
         <h5 className="text-white">Got something to sell?</h5>
         <p>Post an advert for free!!</p>
       </div>

@@ -8,7 +8,7 @@ const Search = ({ onChange }) => {
     <div className="search-container d-flex">
       <input
         type={"text"}
-        placeholder={"Search..."}
+        placeholder={"Search anything..."}
         className="form-control searchInput"
         onChange={handleInputChange}
       />

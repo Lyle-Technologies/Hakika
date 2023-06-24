@@ -6,8 +6,8 @@ import PromotionCard from "./PromotionCard";
 const CategoriesSection = () => {
   return (
     <section id={"categories"}>
-      <div className={"d-flex justify-content-around categoriesViewAll mb-3"}>
-        <h2 className={"boldweight"}>Categories</h2>
+      <div className={"d-flex justify-content-around categoriesViewAll"}>
+        <h3 className={"boldweight"}>Categories</h3>
         <p style={{ color: "#F58634" }}>
           view all
           <span style={{ marginLeft: "10px" }}>

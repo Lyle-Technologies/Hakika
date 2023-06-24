@@ -5,9 +5,9 @@ const ProductCard = ({
   handleNavigate,
 }) => {
   return (
-    <div className={"productCard mb-5"} onClick={handleNavigate}>
+    <div className={"productCard card mb-5"} onClick={handleNavigate}>
       <img
-        className={"img-fluid"}
+        className={"img-fluid card-img-top"}
         src={imageLink}
         alt={"sample"}
         loading={"lazy"}
@@ -15,7 +15,7 @@ const ProductCard = ({
 
       <div className={"p-2"}>
         <p className={"boldweight"}>{productTitle}</p>
-        <p className="boldweight" style={{ color: "#f58634" }}>
+        <p className="boldweight card-text" style={{ color: "#f58634" }}>
           {productPrice.toLocaleString("en-KE", {
             style: "currency",
             currency: "KES",

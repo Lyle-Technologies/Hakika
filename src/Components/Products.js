@@ -21,7 +21,7 @@ const Products = () => {
 
   return (
     <div>
-      <CategoriesTitles title={"Popular"} />
+      <CategoriesTitles title={"Trending Products"} />
       {isLoading ? (
         <div className="rotatingIcon">
           <Oval

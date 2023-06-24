@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 const CategoryPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  // eslint-disable-next-line no-unused-vars
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
 
