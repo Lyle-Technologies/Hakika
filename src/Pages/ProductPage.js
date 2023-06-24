@@ -42,12 +42,15 @@ const ProductPage = () => {
         </div>
       ) : (
         <div>
-          <img
-            id="productImage"
-            className="img-fluid w-100"
-            src={products.imageLink}
-            alt="product"
-          />
+          <div className={"productImageContainer"}>
+            <img
+              id="productImage"
+              className="img-fluid w-100"
+              src={products.imageLink}
+              alt="product"
+            />
+          </div>
+
           <div className="p-3">
             <ProductDetail name={products.name} price={products.price} />
             <div className="descriptionSection">

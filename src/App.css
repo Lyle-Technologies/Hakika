@@ -133,9 +133,15 @@ form > * {
 }
 
 #productImage {
-    width: 60%;
-    display: flex;
-    margin: 5% auto 8%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.productImageContainer{
+    overflow: hidden;
+    position: relative;
+    height: 40vh;
 }
 
 .headings {
