@@ -1,14 +1,4 @@
-import EmailInputField from "../Components/EmailInputField";
-import PasswordInputField from "../Components/PasswordInputField";
-// import Button from "../Components/Button";
-import ImageLogins from "../Components/Image";
-import {
-  InputLabel,
-  FormControl,
-  TextField,
-  Input,
-  Button, InputAdornment, IconButton, Visibli
-} from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 
 const SignUp = () => {
@@ -40,13 +30,16 @@ const SignUp = () => {
           )}
         />
         <p>Password</p>
-        <Controller name="password" control={control} defaultValue={""} render={({field: {onChange, value}}) => (
-          <InputAdornment position="end">
-              <IconButton>
-
-              </IconButton>
-          </InputAdornment>
-        )} />
+        <Controller
+          name="password"
+          control={control}
+          defaultValue={""}
+          render={({ field: { onChange, value } }) => (
+            <InputAdornment position="end">
+              <IconButton></IconButton>
+            </InputAdornment>
+          )}
+        />
         <button
           className="w-100 themeColor text-white fw-bold postAddBtn"
           type="submit"
