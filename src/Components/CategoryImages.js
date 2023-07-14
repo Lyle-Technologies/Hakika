@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 const CategoryImages = () => {
   const navigate = useNavigate();
 
-  const { data: category } = useFetch(
-      "https://hakika-online-store-api.onrender.com/api/categories"
-  );
+  const { data: category } = useFetch(`${process.env.API_URL}/categories`);
 
   const handleNavigate = (id) => {
     navigate(`/category/${id}/products`);

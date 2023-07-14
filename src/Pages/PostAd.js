@@ -41,7 +41,7 @@ const PostAd = () => {
 
     setIsLoading(true); // Enable loading state
 
-    fetch("http://localhost:8000/api/upload", {
+    fetch(`${process.env.API_URL}/upload`, {
       method: "POST",
       body: formData,
     })

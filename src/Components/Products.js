@@ -13,7 +13,7 @@ const Products = () => {
   };
 
   const { data: products, isLoading } = useFetch(
-    "https://hakika-online-store-api.onrender.com/api/products/"
+    `${process.env.API_URL}/products/`
   );
 
   // products.sort(() => Math.random() - 0.5);

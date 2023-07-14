@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 export const ProductContext = createContext();
 
 export const ProductProvider = (props) => {
-  const { data: products } = useFetch("http://localhost:8000/api/products/");
+  const { data: products } = useFetch(`${process.env.API_URL}/products/`);
   return (
     <ProductContext.Provider value={products}>
       {props.children}
