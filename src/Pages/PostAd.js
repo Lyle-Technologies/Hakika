@@ -1,36 +1,64 @@
 import { AiOutlineLeft } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Button,
-  FormControl,
-  Input,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import { BeatLoader } from "react-spinners";
+import {
+  Alert,
+  Badge,
+  Button,
+  FloatingLabel,
+  Form,
+  Image,
+} from "react-bootstrap";
 
 const PostAd = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (selectedImage) {
-      setImageUrl(URL.createObjectURL(selectedImage));
-    }
-  }, [selectedImage]);
+  const {
+    handleSubmit,
+    control,
+    register,
+    watch,
+    formState: { errors },
+  } = useForm();
 
+  const selectedImage = watch("image");
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
-  const { handleSubmit, control, watch } = useForm();
-
   const watchCategory = watch("categories", false);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("image", selectedImage);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("price", data.price);
+    formData.append("phoneNumber", data.phoneNumber);
+    formData.append("user", data.user);
+    formData.append("categories", data.categories);
+
+    setIsLoading(true); // Enable loading state
+
+    fetch("http://localhost:8000/api/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(`Product uploaded successfully`);
+      })
+      .catch((error) => {
+        console.error("error uploading image");
+      })
+      .finally(() => {
+        setIsLoading(false); // disable loading state
+      });
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleGoBack = () => {
@@ -38,207 +66,216 @@ const PostAd = () => {
   };
 
   return (
-    <section id="postAdd" className="productPageSection">
-      <div className="d-flex justify-content-between productPageSectionIcons">
-        <AiOutlineLeft onClick={handleGoBack} />
-        <BiMenuAltRight />
-      </div>
-      <div className="postGoodsContainer mt-4 p-3">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name="categories"
-            control={control}
-            defaultValue={""}
-            render={({ field }) => (
-              <FormControl required id="categorySelect">
-                <InputLabel id="category-select-required-label">
-                  Category
-                </InputLabel>
-                <Select
-                  {...field}
-                  label="Category *"
-                  labelId="category-select-required-label"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value="Electronics">Electronics</MenuItem>
-                  <MenuItem value="Vehicles">Vehicles</MenuItem>
-                  <MenuItem value="Phones & Tablets">Phones & Tablets</MenuItem>
-                  <MenuItem value="Agriculture & Food">
-                    Agriculture & Food
-                  </MenuItem>
-                  <MenuItem value="Home & Garden">Home & Garden</MenuItem>
-                  <MenuItem value="Health & Beauty">Health & Beauty</MenuItem>
-                  <MenuItem value="Fashion">Fashion</MenuItem>
-                </Select>
-              </FormControl>
-            )}
-          />
-          <div className="uploadPhotoContainer mt-4 p-2">
-            <h6>Add photo</h6>
-            <Controller
-              name="image"
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { onChange } }) => (
-                <div className="d-flex align-items-center justify-content-around">
-                  <Input
-                    type="file"
-                    inputProps={{ accept: "image/*" }}
-                    id="select-image"
-                    hidden
-                    onChange={(e) => {
-                      onChange(e.target.files[0]);
-                      setSelectedImage(e.target.files[0]);
-                    }}
-                  />
-                  <label htmlFor="select-image">
+    <>
+      <section id="postAdd" className="productPageSection">
+        <div className="d-flex justify-content-between productPageSectionIcons">
+          <AiOutlineLeft onClick={handleGoBack} />
+          <BiMenuAltRight />
+        </div>
+        {isLoading && (
+          <div className="beatLoader">
+            <BeatLoader
+              color={"#f58634"}
+              size={70}
+              aria-label={"Loading Spinner"}
+              data-testid={"loader"}
+            />
+          </div>
+        )}
+
+        {isLoading && <div className={"overlay"}></div>}
+
+        <div className="postGoodsContainer mt-4 p-3">
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group id={"categorySelect"}>
+              <Form.Select required size={"lg"} {...register("categories")}>
+                <option value={""}>None</option>
+                <option value={"Electronics"}>Electronics</option>
+                <option value={"Vehicles"}>Vehicles</option>
+                <option value={"Phones & Tablets"}>Phones & Tablets</option>
+                <option value={"Agriculture & Food"}>Agriculture & Food</option>
+                <option value={"Home & Garden"}>Home & Garden</option>
+                <option value={"Health & Beauty"}>Health & Beauty</option>
+                <option value={"Fashion"}>Fashion</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className={"uploadPhotoContainer mt-4 p-2"}>
+              <h6>Add photo</h6>
+              <Controller
+                name="image"
+                control={control}
+                rules={{ required: "Please upload an image" }}
+                render={({ field: { onChange } }) => (
+                  <div className="d-flex align-items-center justify-content-around">
                     <Button
-                      variant="contained"
-                      color="primary"
+                      variant="primary"
                       component="span"
+                      onClick={handleButtonClick}
                     >
                       Upload Image
                     </Button>
-                  </label>
-                  {imageUrl && selectedImage && (
-                    <Box className="col-3" mt={1} textAlign={"center"}>
-                      <img
-                        className="img-fluid"
-                        src={imageUrl}
-                        alt={selectedImage.name}
-                      />
-                    </Box>
-                  )}
+                    {errors.image && (
+                      <Alert variant={"danger"}>{errors.image.message}</Alert>
+                    )}
+                    <input
+                      {...register("image")}
+                      type="file"
+                      ref={fileInputRef}
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={(e) => {
+                        onChange(e.target.files[0]);
+                      }}
+                    />
+                  </div>
+                )}
+              />
+              {selectedImage && (
+                <div className="mx-auto w-50 mt-4">
+                  <Image
+                    src={URL.createObjectURL(selectedImage)}
+                    alt="Preview"
+                    width={200}
+                    height={200}
+                  />
                 </div>
               )}
-            />
-            <p className="mt-4 fs- fw-bold">
-              Each picture must not exceed 5 Mb <br />
-              Supported formats are *.jpg and *.png
-            </p>
-          </div>
-          {watchCategory ? (
-            <div className="additionalInformation">
-              <Controller
-                name="title"
-                control={control}
-                defaultValue={""}
-                rules={{ required: "Value cannot be empty" }}
-                render={({
-                  field: { onChange, value },
-                  fieldState: { error },
-                }) => (
-                  <TextField
-                    required
-                    className="mb-5 w-100"
-                    value={value}
-                    inputRef={onChange}
-                    onChange={(e) => onChange(e.target.value)}
-                    label="Title"
-                    helperText={error?.message}
-                  />
-                )}
-              />
-              <Controller
-                name="description"
-                control={control}
-                defaultValue={""}
-                render={({
-                  field: { onChange, value },
-                  fieldState: { error },
-                }) => (
-                  <TextField
-                    className="w-100 mb-5"
-                    required
-                    inputRef={onChange}
-                    value={value}
-                    onChange={(e) => onChange(e.target.value)}
-                    label="Description"
-                    multiline
-                    rows={4}
-                    error={error}
-                    helperText={error?.message}
-                  />
-                )}
-              />
-              <Controller
-                name="price"
-                control={control}
-                defaultValue={""}
-                render={({
-                  field: { onChange, value },
-                  fieldState: { error },
-                }) => (
-                  <TextField
-                    required
-                    type="number"
-                    className="w-100 mb-5"
-                    error={!!error}
-                    helperText={error?.message}
-                    inputRef={onChange}
-                    label="Price"
-                    value={value}
-                    onChange={(e) => onChange(e.target.value)}
-                  />
-                )}
-              />
-              <Controller
-                name="phoneNumber"
-                control={control}
-                defaultValue={""}
-                rules={{ pattern: /^07\d{8}$/ }}
-                render={({
-                  field: { onChange, value },
-                  fieldState: { error },
-                }) => (
-                  <TextField
-                    required
-                    placeholder="0712345685"
-                    type="tel"
-                    variant="outlined"
-                    className="w-100 mb-5"
-                    error={!!error}
-                    helperText={error?.message}
-                    inputRef={onChange}
-                    label="Your phone number"
-                    value={value}
-                    onChange={(e) => onChange(e.target.value)}
-                  />
-                )}
-              />
-              <Controller
-                name="name"
-                control={control}
-                defaultValue={""}
-                render={({ field: { onChange, value } }) => (
-                  <TextField
-                    required
-                    disabled
-                    className="mb-5 w-100"
-                    value={value}
-                    inputRef={onChange}
-                    onChange={(e) => onChange(e.target.value)}
-                    label="Steven Otieno"
-                    placeholder="Name"
-                  />
-                )}
-              />
-            </div>
-          ) : (
-            <div></div>
-          )}
+            </Form.Group>
+            {watchCategory ? (
+              <div className="additionalInformation">
+                <Controller
+                  name="title"
+                  control={control}
+                  defaultValue={""}
+                  rules={{ required: "Please fill in the title" }}
+                  render={({ field }) => (
+                    <Form.Group className="mb-5">
+                      <FloatingLabel controlId="floatingInput" label="Title">
+                        <Form.Control
+                          placeholder="Title"
+                          type="text"
+                          style={{ height: "50px", resize: "none" }}
+                          {...field}
+                        />
+                        {errors.title && (
+                          <Badge bg={"danger"} className="w-100">
+                            {errors.title.message}
+                          </Badge>
+                        )}
+                      </FloatingLabel>
+                    </Form.Group>
+                  )}
+                />
+                <Controller
+                  name="description"
+                  control={control}
+                  defaultValue={""}
+                  rules={{ required: "Please fill in the description" }}
+                  render={({ field }) => (
+                    <Form.Group className="mb-5">
+                      <FloatingLabel
+                        controlId="floatingDescription"
+                        label="Description"
+                      >
+                        <Form.Control
+                          placeholder="Description"
+                          as="textarea"
+                          style={{ height: "150px", resize: "none" }}
+                          {...field}
+                        />
+                        {errors.description && (
+                          <Badge bg={"danger"} className="w-100">
+                            {errors.description.message}
+                          </Badge>
+                        )}
+                      </FloatingLabel>
+                    </Form.Group>
+                  )}
+                />
+                <Controller
+                  name="price"
+                  control={control}
+                  defaultValue={""}
+                  rules={{ required: "Please enter the price" }}
+                  render={({ field }) => (
+                    <Form.Group className="mb-5">
+                      <FloatingLabel controlId="floatingNumber" label="Price">
+                        <Form.Control
+                          type="number"
+                          placeholder="Price"
+                          {...field}
+                        />
+                        {errors.price && (
+                          <Badge bg={"danger"} className="w-100">
+                            {errors.price.message}
+                          </Badge>
+                        )}
+                      </FloatingLabel>
+                    </Form.Group>
+                  )}
+                />
+                <Controller
+                  name="phoneNumber"
+                  control={control}
+                  defaultValue={""}
+                  rules={{
+                    pattern: /^07\d{8}$/,
+                    required: "Please enter a valid phone number",
+                  }}
+                  render={({ field }) => (
+                    <Form.Group className="mb-5">
+                      <FloatingLabel
+                        controlId="floatingTelephone"
+                        label="Phone Number"
+                      >
+                        <Form.Control
+                          type="tel"
+                          placeholder="Phone Number"
+                          {...field}
+                        />
+                        {errors.phoneNumber && (
+                          <Badge bg={"danger"} className="w-100">
+                            {errors.phoneNumber.message}
+                          </Badge>
+                        )}
+                      </FloatingLabel>
+                    </Form.Group>
+                  )}
+                />
+                <Controller
+                  name="user"
+                  control={control}
+                  defaultValue={""}
+                  render={({ field }) => (
+                    <Form.Group className="mb-5">
+                      <FloatingLabel controlId="floatingUser" label="John Doe">
+                        <Form.Control
+                          placeholder="John Doe"
+                          value={"John Doe"}
+                          type="text"
+                          disabled
+                          style={{ height: "50px", resize: "none" }}
+                          {...field}
+                        />
+                      </FloatingLabel>
+                    </Form.Group>
+                  )}
+                />
+              </div>
+            ) : (
+              <div></div>
+            )}
 
-          <button
-            className="w-100 themeColor text-white fw-bold postAddBtn"
-            type="submit"
-          >
-            POST AD
-          </button>
-        </form>
-      </div>
-    </section>
+            <button
+              className="w-100 themeColor text-white fw-bold postAddBtn"
+              type="submit"
+            >
+              POST
+            </button>
+          </Form>
+        </div>
+      </section>
+    </>
   );
 };
 

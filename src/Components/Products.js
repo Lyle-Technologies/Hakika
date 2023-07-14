@@ -17,7 +17,7 @@ const Products = () => {
   );
 
   // products.sort(() => Math.random() - 0.5);
-  const popularProducts = products.slice(0, 7);
+  const popularProducts = products.slice(0, 14);
 
   return (
     <div>
@@ -45,7 +45,7 @@ const Products = () => {
               key={product._id}
               imageLink={product.imageLink}
               productPrice={product.price}
-              productTitle={product.name}
+              productTitle={product.title}
             />
           ))}
         </div>

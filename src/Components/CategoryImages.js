@@ -6,7 +6,7 @@ const CategoryImages = () => {
   const navigate = useNavigate();
 
   const { data: category } = useFetch(
-    "https://hakika-online-store-api.onrender.com/api/categories"
+      "https://hakika-online-store-api.onrender.com/api/categories"
   );
 
   const handleNavigate = (id) => {
