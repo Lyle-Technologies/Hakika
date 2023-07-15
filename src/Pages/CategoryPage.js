@@ -19,7 +19,7 @@ const CategoryPage = () => {
   };
 
   const { data: products, isLoading } = useFetch(
-    `https://hakika-online-store-api.onrender.com/api/${id}/products`
+    `${process.env.REACT_APP_API_URL}/${id}/products`
   );
 
   const handleGoBack = () => {
@@ -74,7 +74,7 @@ const CategoryPage = () => {
                 key={product._id}
                 imageLink={product.imageLink}
                 productPrice={product.price}
-                productTitle={product.name}
+                productTitle={product.title}
               />
             ))}
           </div>
