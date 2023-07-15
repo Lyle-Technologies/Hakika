@@ -5,7 +5,6 @@ import useFetch from "../Components/useFetch";
 import { useNavigate, useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import ProductDetail from "../Components/ProductDetail";
-import { Button } from "react-bootstrap";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const ProductPage = () => {
   };
 
   const { data: products, isLoading } = useFetch(
-    `https://hakika-online-store-api.onrender.com/api/products/${id}`
+    `${process.env.REACT_APP_API_URL}/products/${id}`
   );
 
   return (
@@ -53,7 +52,7 @@ const ProductPage = () => {
           </div>
 
           <div className="p-3">
-            <ProductDetail name={products.name} price={products.price} />
+            <ProductDetail name={products.title} price={products.price} />
             <div className="descriptionSection">
               <div className="headings d-flex justify-content-between mt-5">
                 <p
