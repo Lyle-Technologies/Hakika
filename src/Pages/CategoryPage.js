@@ -35,7 +35,7 @@ const CategoryPage = () => {
   const handleSearchChange = (query) => {
     setSearchQuery(query); // update the search state
     const filteredProducts = products.filter((item) => {
-      const productName = item.name.toLowerCase();
+      const productName = item.title.toLowerCase();
       return productName.includes(query.toLowerCase());
     });
     setFilteredProducts(filteredProducts); // update the filtered data state with the filter results
