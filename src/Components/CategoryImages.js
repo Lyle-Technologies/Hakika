@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 const CategoryImages = () => {
   const navigate = useNavigate();
 
-  const { data: category } = useFetch(`${process.env.API_URL}/categories`);
+  const { data: category } = useFetch(
+    `${process.env.REACT_APP_API_URL}/categories`
+  );
 
   const handleNavigate = (id) => {
     navigate(`/category/${id}/products`);

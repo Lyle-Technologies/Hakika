@@ -13,7 +13,7 @@ const Products = () => {
   };
 
   const { data: products, isLoading } = useFetch(
-    `${process.env.API_URL}/products/`
+    `${process.env.REACT_APP_API_URL}/products/`
   );
 
   // products.sort(() => Math.random() - 0.5);
