@@ -1,64 +1,60 @@
 import { Link } from "react-router-dom";
-import Button from "../Components/Button";
-import EmailInputField from "../Components/EmailInputField";
-import PasswordInputField from "../Components/PasswordInputField";
-import CheckBoxInputField from "../Components/CheckBoxInputField";
-import ImageLogins from "../Components/Image";
+
+import ButtonWithImage from "../Components/ButtonWithImage";
+import { Form } from "react-bootstrap";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
 
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <section className={"container loginSection"}>
-      <h1 className={"fontFamily text-center"}>
-        Welcome Back Steven!!
-        <span>
-          <img
-            className={"img-fluid"}
-            src={
-              "https://res.cloudinary.com/dogmqg8to/image/upload/v1675211691/Hakika%20Ecommerce/wave_uk2quo.png"
-            }
-            alt={"waving hand"}
-          />
-        </span>
-      </h1>
-      <p className={"text-center"}>Log in with</p>
+    <section className={"container signUpSection p-4 mt-4"}>
+      <h2>Sign in to Hakika Store</h2>
       <div className={"d-flex justify-content-around"}>
-        <ImageLogins
-          text={"Google"}
+        <ButtonWithImage
+          text={"Sign in with Google"}
           src={
             "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203177/Hakika%20Ecommerce/google_1_wbwham.png"
           }
           alt={"Google"}
         />
-        <ImageLogins
-          src={
-            "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203053/Hakika%20Ecommerce/facebook_1_axdlxj.png"
-          }
-          text={"Facebook"}
-        />
       </div>
-      <p className={"text-center"}>Or continue with</p>
-      <form className={"d-flex flex-column"}>
-        <div>
-          <EmailInputField />
-        </div>
-        <div>
-          <PasswordInputField />
-          <Link to={"/"} className={"forgotPassword"}>
-            Forgot Password?
-          </Link>
-          <div className={"d-flex"}>
-            <div>
-              <CheckBoxInputField />
-            </div>
-            <span>Remember Me</span>
+      <div className={"d-flex justify-content-between mt-4"}>
+        <span className={"borders"}></span>
+        <p className={"text-center mb-1"}>or sign in with email</p>
+        <div className={"borders"}></div>
+      </div>
+      <Form>
+        <Form.Group className={"mb-3"}>
+          <Form.Label>Username or Email</Form.Label>
+          <Form.Control type={"text"} placeholder={"Email ID / Username"} />
+        </Form.Group>
+        <Form.Group className={"mb-3"} id={"passwordContainer"}>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder={"Enter your password"}
+          />
+          <div onClick={togglePasswordVisibility} className={"passwordIcon"}>
+            {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
           </div>
-        </div>
-        <Button text={"Login"} />
-      </form>
+        </Form.Group>
+        <button type={"submit"} className={"signInBtn mt-4"}>
+          Sign In
+        </button>
+      </Form>
       <p className={"text-center"}>
         Don't have any account?{" "}
         <Link
-          to={"/signup"}
+          to={"/signup/new"}
           style={{ textDecoration: "none", color: "#F2994A" }}
         >
           Join Us

@@ -14,8 +14,8 @@ function App() {
   return (
     <ProductProvider>
       <Routes>
-        <Route path={"/login"} element={<Login />} />
-        <Route path={"/signup"} element={<SignUp />} />
+        <Route path={"/session/new"} element={<Login />} />
+        <Route path={"/signup/new"} element={<SignUp />} />
         <Route path="/profile" element={<AccountPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/category/:id/products" element={<CategoryPage />} />
