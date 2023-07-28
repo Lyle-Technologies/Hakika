@@ -12,6 +12,7 @@ import {
   Form,
   Image,
 } from "react-bootstrap";
+import { toast, Toaster } from "react-hot-toast";
 
 const PostAd = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +48,7 @@ const PostAd = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(`Product uploaded successfully`);
+        toast.success("Product uploaded successfully");
       })
       .catch((error) => {
         console.error("error uploading image");
@@ -68,6 +69,13 @@ const PostAd = () => {
   return (
     <>
       <section id="postAdd" className="productPageSection">
+        <Toaster
+          position={"top-right"}
+          toastOptions={{
+            duration: 1000,
+            style: { background: "#363636", color: "white" },
+          }}
+        />
         <div className="d-flex justify-content-between productPageSectionIcons">
           <AiOutlineLeft onClick={handleGoBack} />
           <BiMenuAltRight />

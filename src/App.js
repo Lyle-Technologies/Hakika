@@ -9,6 +9,8 @@ import ProductPage from "./Pages/ProductPage";
 import NotFound from "./Pages/NotFound";
 import CategoryPage from "./Pages/CategoryPage";
 import PostAd from "./Pages/PostAd";
+import ConfirmEmail from "./Pages/ConfirmEmail";
+import { EmailVerified } from "./Pages/EmailVerified";
 
 function App() {
   return (
@@ -21,6 +23,11 @@ function App() {
         <Route path="/category/:id/products" element={<CategoryPage />} />
         <Route path="/post-add" element={<PostAd />} />
         <Route path={"/"} element={<Home />} />
+        <Route
+          path={"/users/email_verification_required"}
+          element={<ConfirmEmail />}
+        />
+        <Route path={"/users/:id/verify/:token"} element={<EmailVerified />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ProductProvider>

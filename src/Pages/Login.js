@@ -15,10 +15,10 @@ const Login = () => {
 
   return (
     <section className={"container signUpSection p-4 mt-4"}>
-      <h2>Sign in to Hakika Store</h2>
+      <h2>Log in to Hakika Store</h2>
       <div className={"d-flex justify-content-around"}>
         <ButtonWithImage
-          text={"Sign in with Google"}
+          text={"Log in with Google"}
           src={
             "https://res.cloudinary.com/dogmqg8to/image/upload/v1675203177/Hakika%20Ecommerce/google_1_wbwham.png"
           }
@@ -27,13 +27,13 @@ const Login = () => {
       </div>
       <div className={"d-flex justify-content-between mt-4"}>
         <span className={"borders"}></span>
-        <p className={"text-center mb-1"}>or sign in with email</p>
+        <p className={"text-center mb-1"}>or login in with email</p>
         <div className={"borders"}></div>
       </div>
       <Form>
         <Form.Group className={"mb-3"}>
-          <Form.Label>Username or Email</Form.Label>
-          <Form.Control type={"text"} placeholder={"Email ID / Username"} />
+          <Form.Label>Email</Form.Label>
+          <Form.Control type={"text"} placeholder={"E-Mail Address"} />
         </Form.Group>
         <Form.Group className={"mb-3"} id={"passwordContainer"}>
           <Form.Label>Password</Form.Label>
@@ -48,7 +48,7 @@ const Login = () => {
           </div>
         </Form.Group>
         <button type={"submit"} className={"signInBtn mt-4"}>
-          Sign In
+          Log In
         </button>
       </Form>
       <p className={"text-center"}>
