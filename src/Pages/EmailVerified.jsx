@@ -3,21 +3,25 @@ import { Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 export const EmailVerified = () => {
-  const [validUrl, setValidUrl] = useState(false);
+  const [validUrl, setValidUrl] = useState(true);
   const params = useParams();
 
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_API_URL}/auth/users/${params.id}/verify/${params.token}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
+    const verifyEmail = async () => {
+      try {
+        const url = await fetch(
+          `${process.env.REACT_APP_API_URL}/auth/users/${params.id}/verify/${params.token}`
+        );
+        const data = await url.json();
+        console.log(data);
         setValidUrl(true);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.log(error);
         setValidUrl(false);
-      });
+      }
+    };
+
+    verifyEmail();
   }, [params]);
 
   const navigate = useNavigate();
